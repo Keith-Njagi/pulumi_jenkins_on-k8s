@@ -1,0 +1,6 @@
+name: jenkins_on_k8s
+description: Jenkins on Kubernetes Setup with Python and Pulumi
+runtime:
+    name: python
+    options:
+        virtualenv: venv
