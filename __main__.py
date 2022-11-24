@@ -133,6 +133,7 @@ deployment = Deployment(
                     containers=[ContainerArgs(
                         name="jenkins",
                         image="jenkins/jenkins:lts",
+                        image_pull_policy="IfNotPresent",
                         ports=[
                             ContainerPortArgs(container_port=8080, name="httpport"),
                             ContainerPortArgs(container_port=50000, name="jniport"),
@@ -192,4 +193,4 @@ pulumi.export("persistent_volume_claim", persistent_volume_claim.metadata["name"
 pulumi.export("deployment", deployment.metadata["name"])
 pulumi.export("service", service.metadata["name"])
 
-# kubectl port-forward --namespace jenkins  deployment/nginx 9100:80
+# kubectl port-forward --namespace devops-tools  deployment/jenkins 9100:8080
